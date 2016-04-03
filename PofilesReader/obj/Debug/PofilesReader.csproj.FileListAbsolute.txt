@@ -1,4 +1,0 @@
-C:\Users\Anna\Documents\Visual Studio 2015\Projects\PofilesReader\PofilesReader\bin\Debug\PofilesReader.dll
-C:\Users\Anna\Documents\Visual Studio 2015\Projects\PofilesReader\PofilesReader\bin\Debug\PofilesReader.pdb
-C:\Users\Anna\Documents\Visual Studio 2015\Projects\PofilesReader\PofilesReader\obj\Debug\PofilesReader.dll
-C:\Users\Anna\Documents\Visual Studio 2015\Projects\PofilesReader\PofilesReader\obj\Debug\PofilesReader.pdb
