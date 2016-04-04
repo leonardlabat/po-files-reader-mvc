@@ -9,3 +9,4 @@ TODO :
 
 - Cache for translations for performance
 - Ilogger interface to plug
+- - check plural sentences
