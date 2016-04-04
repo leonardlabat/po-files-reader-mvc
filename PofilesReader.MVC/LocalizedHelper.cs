@@ -14,7 +14,7 @@ namespace PofilesReader.MVC.Helpers
         {
             var path = $"~/App_Data/Localization/{CultureInfo.CurrentUICulture}/";
             var paths = helper.ViewContext.HttpContext.Server.MapPath(path);
-            var manager = new DefaultLocalizedStringManager();
+            var manager = new DefaultLocalizedStringManager(paths);
             var t = manager.GetLocalizedString(text, text);
             return new MvcHtmlString(t);
         }
@@ -23,7 +23,7 @@ namespace PofilesReader.MVC.Helpers
 
             var path = $"~/App_Data/Localization/{CultureInfo.CurrentUICulture}/";
             var paths = helper.ViewContext.HttpContext.Server.MapPath(path);
-            var manager = new DefaultLocalizedStringManager();
+            var manager = new DefaultLocalizedStringManager(paths);
             var t = manager.GetLocalizedString(context, text);
             return new MvcHtmlString(t);
         }
