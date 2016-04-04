@@ -21,7 +21,6 @@ namespace PofilesReader.Localization
 
         public DefaultLocalizedStringManager(string directoryPath)
         {
-
             _filesPath = Directory.EnumerateFiles(directoryPath).ToArray();
         }
 

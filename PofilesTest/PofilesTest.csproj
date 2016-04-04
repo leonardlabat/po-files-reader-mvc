@@ -190,8 +190,8 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="App_Data\Localization\fr-FR\test.po" />
     <Content Include="App_Data\Localization\fr-FR\test2.po" />
-    <Content Include="App_Data\Localization\en-US\test.po" />
-    <Content Include="App_Data\Localization\en-US\test2.po" />
+    <Content Include="App_Data\Localization\en\test.po" />
+    <Content Include="App_Data\Localization\en\test2.po" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
