@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PofilesReader", "PofilesRea
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PofilesReader.MVC", "PofilesReader.MVC\PofilesReader.MVC.csproj", "{A843D042-BFB0-4D21-82AE-A27E33B8665E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PofilesTest", "PofilesTest\PofilesTest.csproj", "{B2DA04C1-5497-47FD-A22B-A61C19070309}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{A843D042-BFB0-4D21-82AE-A27E33B8665E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A843D042-BFB0-4D21-82AE-A27E33B8665E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A843D042-BFB0-4D21-82AE-A27E33B8665E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2DA04C1-5497-47FD-A22B-A61C19070309}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2DA04C1-5497-47FD-A22B-A61C19070309}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2DA04C1-5497-47FD-A22B-A61C19070309}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2DA04C1-5497-47FD-A22B-A61C19070309}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
