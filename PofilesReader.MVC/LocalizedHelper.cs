@@ -51,7 +51,7 @@ namespace PofilesReader.MVC.Helpers
             if (!string.IsNullOrEmpty(paths))
             {
                 var manager = new DefaultLocalizedStringManager(paths);
-                result = manager.GetLocalizedString(string.Empty, text);
+                result = manager.GetLocalizedString(string.Empty, text, true);
             }
             return new MvcHtmlString(result);
         }

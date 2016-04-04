@@ -36,28 +36,37 @@ namespace PofilesReader.Localization
         // If the culture doesn't have a translation for the string, it will fallback to the 
         // parent culture as defined in the .net culture hierarchy. e.g. fr-FR will fallback to fr.
         // In case it's not found anywhere, the text is returned as is.
-        public string GetLocalizedString(string scope, string text)
+        public string GetLocalizedString(string scope, string text, bool plural = false, int? index = null)
         {
             var culture = LoadAndGetCulture(CultureInfo.CurrentUICulture);
 
             string scopedKey = (scope + "|" + text).ToLowerInvariant();
-            if (culture.ContainsKey(scopedKey))
-            {
-                return culture[scopedKey].Value;
-            }
-
             string genericKey = ("|" + text).ToLowerInvariant();
-            if (culture.ContainsKey(genericKey))
-            {
-                return culture[genericKey].Value;
-            }
 
-            return GetParentTranslation(scope, text, CultureInfo.CurrentUICulture.Name);
+            var value = GetValueFallbacks(culture, plural, index, scopedKey, genericKey);
+            if (!string.IsNullOrEmpty(value))
+                return value;
+            return GetParentTranslation(scope, text, CultureInfo.CurrentUICulture.Name, plural, index);
+        }
+
+        /// <summary>
+        /// look for values, returns first found
+        /// </summary>
+        /// <param name="culture"></param>
+        /// <param name="keys"></param>
+        /// <returns></returns>
+        private static string GetValueFallbacks(CultureDictionary culture, bool plural, int? index = null, params string[] keys)
+        {
+            foreach (var key in keys)
+            {
+                if (culture.ContainsKey(key))
+                    return plural ? culture[key].Value : !index.HasValue? culture[key].PluralValue: culture[key].PluralNValues[index.Value];
+            }
+            return string.Empty;
         }
 
 
-
-        private string GetParentTranslation(string scope, string text, string cultureName)
+        private string GetParentTranslation(string scope, string text, string cultureName, bool plural = false, int? index = null)
         {
             string scopedKey = (scope + "|" + text).ToLowerInvariant();
             string genericKey = ("|" + text).ToLowerInvariant();
@@ -68,19 +77,16 @@ namespace PofilesReader.Localization
                 if (parentCultureInfo.IsNeutralCulture)
                 {
                     CultureDictionary culture = LoadAndGetCulture(parentCultureInfo);
-                    if (culture.ContainsKey(scopedKey))
-                    {
-                        return culture[scopedKey].Value;
-                    }
-                    if (culture.ContainsKey(genericKey))
-                    {
-                        return culture[genericKey].Value;
-                    }
+                    var value = GetValueFallbacks(culture, plural, index, scopedKey, genericKey);
+
+                    if (!string.IsNullOrEmpty(value))
+                        return value;
                     return text;
                 }
             }
-            catch (CultureNotFoundException) { }
-
+            catch (CultureNotFoundException)
+            {//TODO
+            }
             return text;
         }
 
@@ -206,6 +212,12 @@ namespace PofilesReader.Localization
                         id = ParseId(poLine);
                         continue;
                     }
+                    //TODO
+                    //if (poLine.StartsWith("msgid_plural"))
+                    //{
+                    //    id = ParseId(poLine);
+                    //    continue;
+                    //}
 
                     if (poLine.StartsWith("msgstr"))
                     {
