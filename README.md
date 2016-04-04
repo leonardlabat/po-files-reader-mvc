@@ -7,10 +7,9 @@ Works ok but would need some improvements like :
 
 TODO : 
 
-- Persistence container within html mvc helpers
+- Persistence container within html mvc helpers to ensure cache for loaded cultures with all translations
 - Ilogger interface to plug
-- unit tests
-- 
+- unit testing
 
 
 For helpers : files should be in App_Data/Localization/{cultureUI}/
