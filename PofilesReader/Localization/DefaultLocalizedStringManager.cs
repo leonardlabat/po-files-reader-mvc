@@ -55,6 +55,8 @@ namespace PofilesReader.Localization
             return GetParentTranslation(scope, text, CultureInfo.CurrentUICulture.Name);
         }
 
+
+
         private string GetParentTranslation(string scope, string text, string cultureName)
         {
             string scopedKey = (scope + "|" + text).ToLowerInvariant();
@@ -281,7 +283,7 @@ namespace PofilesReader.Localization
             /// msgstr[0] "s'ha trobat %d error fatal"
             ///msgstr[1] "s'han trobat %d errors fatals"
             /// </summary>
-            public string PluralNValues { get; set; }
+            public string[] PluralNValues { get; set; }
         }
     }
 }
