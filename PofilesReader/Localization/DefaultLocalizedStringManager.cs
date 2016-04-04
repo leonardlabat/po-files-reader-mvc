@@ -15,14 +15,14 @@ namespace PofilesReader.Localization
     public class DefaultLocalizedStringManager : ILocalizedStringManager
     {
         private string[] _filesPath;
-
+        private IDictionary<string, CultureDictionary> _culturesCache = new Dictionary<string, CultureDictionary>();
         public ILogger Logger { get; set; }
         //private readonly ICacheManager _cacheManager;
 
         public DefaultLocalizedStringManager(string directoryPath)
         {
-          
-            _filesPath =  Directory.EnumerateFiles(directoryPath).ToArray();
+
+            _filesPath = Directory.EnumerateFiles(directoryPath).ToArray();
         }
 
         public DefaultLocalizedStringManager(params string[] filesPaths)
@@ -39,22 +39,21 @@ namespace PofilesReader.Localization
         // In case it's not found anywhere, the text is returned as is.
         public string GetLocalizedString(string scope, string text)
         {
-            var cultureName = CultureInfo.CurrentUICulture.Name;
-            var culture = LoadCulture(cultureName);
+            var culture = LoadAndGetCulture(CultureInfo.CurrentUICulture);
 
             string scopedKey = (scope + "|" + text).ToLowerInvariant();
-            if (culture.Translations.ContainsKey(scopedKey))
+            if (culture.ContainsKey(scopedKey))
             {
-                return culture.Translations[scopedKey];
+                return culture[scopedKey].Value;
             }
 
             string genericKey = ("|" + text).ToLowerInvariant();
-            if (culture.Translations.ContainsKey(genericKey))
+            if (culture.ContainsKey(genericKey))
             {
-                return culture.Translations[genericKey];
+                return culture[genericKey].Value;
             }
 
-            return GetParentTranslation(scope, text, cultureName);
+            return GetParentTranslation(scope, text, CultureInfo.CurrentUICulture.Name);
         }
 
         private string GetParentTranslation(string scope, string text, string cultureName)
@@ -67,14 +66,14 @@ namespace PofilesReader.Localization
                 CultureInfo parentCultureInfo = cultureInfo.Parent;
                 if (parentCultureInfo.IsNeutralCulture)
                 {
-                    var culture = LoadCulture(parentCultureInfo.Name);
-                    if (culture.Translations.ContainsKey(scopedKey))
+                    CultureDictionary culture = LoadAndGetCulture(parentCultureInfo);
+                    if (culture.ContainsKey(scopedKey))
                     {
-                        return culture.Translations[scopedKey];
+                        return culture[scopedKey].Value;
                     }
-                    if (culture.Translations.ContainsKey(genericKey))
+                    if (culture.ContainsKey(genericKey))
                     {
-                        return culture.Translations[genericKey];
+                        return culture[genericKey].Value;
                     }
                     return text;
                 }
@@ -82,6 +81,18 @@ namespace PofilesReader.Localization
             catch (CultureNotFoundException) { }
 
             return text;
+        }
+
+        private CultureDictionary LoadAndGetCulture(CultureInfo cultureInfo)
+        {
+            CultureDictionary culture = null;
+            if (!_culturesCache.TryGetValue(cultureInfo.Name, out culture))
+            {
+                culture = LoadCulture(cultureInfo.Name);
+                _culturesCache.Add(culture.CultureName, culture);
+            }
+
+            return culture;
         }
 
         // Loads the culture dictionary in memory and caches it.
@@ -101,9 +112,9 @@ namespace PofilesReader.Localization
         // override the ones from lower priority locations during loading of dictionaries.
 
         // TODO: Add culture name in the po file name to facilitate usage.
-        private IDictionary<string, string> LoadTranslationsForCulture(string culture)
+        private IEnumerable<CultureValue> LoadTranslationsForCulture(string culture)
         {
-            IDictionary<string, string> translations = new Dictionary<string, string>();
+            List<CultureValue> translations = new List<CultureValue>();
             foreach (var path in _filesPath)
             {
                 string filepath = string.Format(path, culture);
@@ -111,10 +122,11 @@ namespace PofilesReader.Localization
 
                 if (text != null)
                 {
-                    ParseLocalizationStream(text, translations, false);
+                   var trResult =  ParseLocalizationStream(text, false);
+                   translations= translations.Union(trResult).ToList();
                 }
             }
-           
+
             return translations;
         }
 
@@ -146,13 +158,15 @@ namespace PofilesReader.Localization
                     {
                         sb.Append(unescaped);
                     }
-                    else {
+                    else
+                    {
                         // General rule: \x ==> x
                         sb.Append(c);
                     }
                     escaped = false;
                 }
-                else {
+                else
+                {
                     if (c == '\\')
                     {
                         escaped = true;
@@ -166,7 +180,7 @@ namespace PofilesReader.Localization
             return sb == null ? str : sb.ToString();
         }
 
-        private static void ParseLocalizationStream(string text, IDictionary<string, string> translations, bool merge)
+        private static IEnumerable<CultureValue> ParseLocalizationStream(string text, bool merge)
         {
             var reader = new StringReader(text);
             string poLine, id, scope;
@@ -198,16 +212,7 @@ namespace PofilesReader.Localization
                     if (!string.IsNullOrWhiteSpace(id) && !string.IsNullOrWhiteSpace(translation))
                     {
                         string scopedKey = (scope + "|" + id).ToLowerInvariant();
-                        if (!translations.ContainsKey(scopedKey))
-                        {
-                            translations.Add(scopedKey, translation);
-                        }
-                        else {
-                            if (merge)
-                            {
-                                translations[scopedKey] = translation;
-                            }
-                        }
+                        yield return new CultureValue { Key = scopedKey, Value = translation };
                     }
                     id = scope = string.Empty;
                 }
@@ -238,7 +243,45 @@ namespace PofilesReader.Localization
         class CultureDictionary
         {
             public string CultureName { get; set; }
-            public IDictionary<string, string> Translations { get; set; }
+
+            public bool ContainsKey(string key)
+            {
+                return Translations.Any(c => c.Key == key);
+            }
+
+            public CultureValue this[string key]
+            {
+                get
+                {
+                    return Translations.FirstOrDefault(e=>e.Key ==key);
+                }
+            }
+            public IEnumerable<CultureValue> Translations { get; set; }
+        }
+
+        class CultureValue
+        {
+            public override bool Equals(object obj)
+            {
+                if (!(obj is CultureValue))
+                    throw new ArgumentException("obj should be of culture value type");
+                return Key == (obj as CultureValue).Key;
+            }
+            public override int GetHashCode()
+            {
+                return Key.GetHashCode();
+            }
+            public string Key { get; set; }
+
+            public string Value { get; set; }
+            public string PluralValue { get; set; }
+
+            /// <summary>
+            /// such as
+            /// msgstr[0] "s'ha trobat %d error fatal"
+            ///msgstr[1] "s'han trobat %d errors fatals"
+            /// </summary>
+            public string PluralNValues { get; set; }
         }
     }
 }
