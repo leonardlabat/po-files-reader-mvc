@@ -10,3 +10,10 @@ TODO :
 - Persistence container within html mvc helpers
 - Ilogger interface to plug
 - unit tests
+- 
+
+
+For helpers : files should be in App_Data/Localization/{cultureUI}/
+can be changed. 
+
+fallback mechanism on culture parent : en-US > en > neutral
