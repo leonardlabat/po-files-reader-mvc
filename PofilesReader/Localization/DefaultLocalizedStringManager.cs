@@ -122,8 +122,8 @@ namespace PofilesReader.Localization
 
                 if (text != null)
                 {
-                   var trResult =  ParseLocalizationStream(text, false);
-                   translations= translations.Union(trResult).ToList();
+                    var trResult = ParseLocalizationStream(text, false);
+                    translations = translations.Union(trResult).ToList();
                 }
             }
 
@@ -182,41 +182,42 @@ namespace PofilesReader.Localization
 
         private static IEnumerable<CultureValue> ParseLocalizationStream(string text, bool merge)
         {
-            var reader = new StringReader(text);
-            string poLine, id, scope;
-            id = scope = string.Empty;
-            while ((poLine = reader.ReadLine()) != null)
+            using (var reader = new StringReader(text))
             {
-                if (poLine.StartsWith("#:"))
+                string poLine, id, scope;
+                id = scope = string.Empty;
+                while ((poLine = reader.ReadLine()) != null)
                 {
-                    scope = ParseScope(poLine);
-                    continue;
-                }
-
-                if (poLine.StartsWith("msgctxt"))
-                {
-                    scope = ParseContext(poLine);
-                    continue;
-                }
-
-                if (poLine.StartsWith("msgid"))
-                {
-                    id = ParseId(poLine);
-                    continue;
-                }
-
-                if (poLine.StartsWith("msgstr"))
-                {
-                    string translation = ParseTranslation(poLine);
-                    // ignore incomplete localizations (empty msgid or msgstr)
-                    if (!string.IsNullOrWhiteSpace(id) && !string.IsNullOrWhiteSpace(translation))
+                    if (poLine.StartsWith("#:"))
                     {
-                        string scopedKey = (scope + "|" + id).ToLowerInvariant();
-                        yield return new CultureValue { Key = scopedKey, Value = translation };
+                        scope = ParseScope(poLine);
+                        continue;
                     }
-                    id = scope = string.Empty;
-                }
 
+                    if (poLine.StartsWith("msgctxt"))
+                    {
+                        scope = ParseContext(poLine);
+                        continue;
+                    }
+
+                    if (poLine.StartsWith("msgid"))
+                    {
+                        id = ParseId(poLine);
+                        continue;
+                    }
+
+                    if (poLine.StartsWith("msgstr"))
+                    {
+                        string translation = ParseTranslation(poLine);
+                        // ignore incomplete localizations (empty msgid or msgstr)
+                        if (!string.IsNullOrWhiteSpace(id) && !string.IsNullOrWhiteSpace(translation))
+                        {
+                            string scopedKey = (scope + "|" + id).ToLowerInvariant();
+                            yield return new CultureValue { Key = scopedKey, Value = translation };
+                        }
+                        id = scope = string.Empty;
+                    }
+                }
             }
         }
 
@@ -253,7 +254,7 @@ namespace PofilesReader.Localization
             {
                 get
                 {
-                    return Translations.FirstOrDefault(e=>e.Key ==key);
+                    return Translations.FirstOrDefault(e => e.Key == key);
                 }
             }
             public IEnumerable<CultureValue> Translations { get; set; }
