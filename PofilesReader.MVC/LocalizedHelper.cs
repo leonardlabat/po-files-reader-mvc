@@ -15,6 +15,13 @@ namespace PofilesReader.MVC.Helpers
     /// </summary>
     public static class LocalizedHelper
     {
+        //TODO for IOC , make parameter constructor with IWebSitefolder..
+        private static ILocalizedStringManager GetLocalizedManager()
+        {
+            var res = DependencyResolver.Current.GetService<ILocalizedStringManager>();
+            return res ?? new DefaultLocalizedStringManager();
+        }
+
         public static MvcHtmlString T(this HtmlHelper helper, string text)
         {
             string result = text;
@@ -25,6 +32,11 @@ namespace PofilesReader.MVC.Helpers
                 result = manager.GetLocalizedString(string.Empty, text);
             }
             return new MvcHtmlString(result);
+        }
+        public static MvcHtmlString T(this HtmlHelper helper, string text, params string[] paramss) 
+        {
+            var result = helper.T(text).ToString();
+            return new MvcHtmlString(string.Format(result, paramss));
         }
         public static MvcHtmlString T(this HtmlHelper helper, string text, string context)
         {
@@ -39,7 +51,6 @@ namespace PofilesReader.MVC.Helpers
         }
 
         /// <summary>
-        ///TODO plural
         /// </summary>
         /// <param name="helper"></param>
         /// <param name="text"></param>
@@ -51,9 +62,16 @@ namespace PofilesReader.MVC.Helpers
             if (!string.IsNullOrEmpty(paths))
             {
                 var manager = new DefaultLocalizedStringManager(paths);
-                result = manager.GetLocalizedString(string.Empty, text, true);
+                result = manager.GetLocalizedString(string.Empty, text, true,1)??text;
             }
             return new MvcHtmlString(result);
+        }
+
+
+        public static MvcHtmlString TPlural(this HtmlHelper helper, string text, params string[] parammss)
+        {
+            var result = helper.TPlural(text).ToString();
+            return new MvcHtmlString(string.Format(result, parammss));
         }
 
         /// <summary>

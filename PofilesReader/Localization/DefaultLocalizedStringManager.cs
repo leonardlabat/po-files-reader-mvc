@@ -43,10 +43,12 @@ namespace PofilesReader.Localization
             string scopedKey = (scope + "|" + text).ToLowerInvariant();
             string genericKey = ("|" + text).ToLowerInvariant();
 
-            var value = GetValueFallbacks(culture, plural, index, scopedKey, genericKey);
-            if (!string.IsNullOrEmpty(value))
-                return value;
-            return GetParentTranslation(scope, text, CultureInfo.CurrentUICulture.Name, plural, index);
+            var value = GetValueFallbacks(culture, plural, index.GetValueOrDefault(1), scopedKey, genericKey);
+            if (string.IsNullOrEmpty(value))
+                value = GetParentTranslation(scope, text, CultureInfo.CurrentUICulture.Name, plural, index);
+            if (string.IsNullOrEmpty(value))
+                value = text;
+            return value;
         }
 
         /// <summary>
@@ -57,10 +59,18 @@ namespace PofilesReader.Localization
         /// <returns></returns>
         private static string GetValueFallbacks(CultureDictionary culture, bool plural, int? index = null, params string[] keys)
         {
+            if (plural && !index.HasValue)
+                throw new ArgumentException("if plural, index must have a value");
             foreach (var key in keys)
             {
                 if (culture.ContainsKey(key))
-                    return plural ? culture[key].Value : !index.HasValue? culture[key].PluralValue: culture[key].PluralNValues[index.Value];
+                {
+                    var value = !plural ? culture[key].Value : culture[key].PluralNValues[index.Value];
+                    if (string.IsNullOrEmpty(value))
+                        return (!plural) ? key : culture[key].KeyPlural;
+                    else
+                        return value;
+                }
             }
             return string.Empty;
         }
@@ -76,16 +86,13 @@ namespace PofilesReader.Localization
                 CultureInfo parentCultureInfo = cultureInfo.Parent;
                 if (parentCultureInfo.IsNeutralCulture)
                 {
-                    CultureDictionary culture = LoadAndGetCulture(parentCultureInfo);
+                    var culture = LoadAndGetCulture(parentCultureInfo);
                     var value = GetValueFallbacks(culture, plural, index, scopedKey, genericKey);
-
-                    if (!string.IsNullOrEmpty(value))
-                        return value;
-                    return text;
+                    return value;
                 }
             }
             catch (CultureNotFoundException)
-            {//TODO
+            {//TODO no empty catch
             }
             return text;
         }
@@ -117,8 +124,6 @@ namespace PofilesReader.Localization
         // Merging occurs from multiple locations:
         // The dictionary entries from po files that live in higher priority locations will
         // override the ones from lower priority locations during loading of dictionaries.
-
-        // TODO: Add culture name in the po file name to facilitate usage.
         private IEnumerable<CultureValue> LoadTranslationsForCulture(string culture)
         {
             List<CultureValue> translations = new List<CultureValue>();
@@ -191,10 +196,35 @@ namespace PofilesReader.Localization
         {
             using (var reader = new StringReader(text))
             {
-                string poLine, id, scope;
+                string poLine, id, scope, idplural = string.Empty;
+                int? pluralNumbers = null;
                 id = scope = string.Empty;
+                CultureValue cultureValue = null;
                 while ((poLine = reader.ReadLine()) != null)
                 {
+                    if (poLine.StartsWith("\"Plural-Forms"))
+                    {
+                        int pluralNbResult = 0;
+                        var splits = poLine.Split(':');
+                        var splitssemicom = splits.SelectMany(s => s.Split(';'));
+                        var nplural = splitssemicom.Single(e => e.Trim().StartsWith("nplurals="));
+                        var res = int.TryParse(nplural.Split('=')[1], out pluralNbResult);
+                        if (!res)
+                        {
+                            throw new ArgumentException("plural-forms : incorrect number after nplural");
+                        }
+                        pluralNumbers = pluralNbResult;
+                        continue;
+                    }
+
+                    if (cultureValue != null && string.IsNullOrWhiteSpace(poLine))
+                    {
+                        yield return cultureValue;
+                        cultureValue = null; //next translation
+                        poLine = id = scope = idplural = string.Empty;
+                        continue;
+                    }
+
                     if (poLine.StartsWith("#:"))
                     {
                         scope = ParseScope(poLine);
@@ -207,28 +237,49 @@ namespace PofilesReader.Localization
                         continue;
                     }
 
-                    if (poLine.StartsWith("msgid"))
+                    if (poLine.StartsWith("msgid "))
                     {
                         id = ParseId(poLine);
                         continue;
                     }
-                    //TODO
-                    //if (poLine.StartsWith("msgid_plural"))
-                    //{
-                    //    id = ParseId(poLine);
-                    //    continue;
-                    //}
-
-                    if (poLine.StartsWith("msgstr"))
+                    if (poLine.StartsWith("msgid_plural"))
                     {
+                        idplural = ParseIdPlural(poLine);
+                        continue;
+                    }
+                    if (poLine.StartsWith("msgstr "))
+                    {
+                        if (!string.IsNullOrEmpty(idplural))
+                            throw new ArgumentException($"Wrong format of po file, line '{poLine}' contains msgstr without indexes whereas msgid_plural was set");
+
                         string translation = ParseTranslation(poLine);
                         // ignore incomplete localizations (empty msgid or msgstr)
                         if (!string.IsNullOrWhiteSpace(id) && !string.IsNullOrWhiteSpace(translation))
                         {
                             string scopedKey = (scope + "|" + id).ToLowerInvariant();
-                            yield return new CultureValue { Key = scopedKey, Value = translation };
+                            cultureValue = new CultureValue { Key = scopedKey, PluralNValues = new string[1], Value = translation, };
                         }
                         id = scope = string.Empty;
+                        continue;
+                    }
+                    if (poLine.StartsWith("msgstr["))
+                    {
+                        if (string.IsNullOrEmpty(idplural))
+                            throw new ArgumentException($"Wrong format of po file, line '{poLine}' contains msgstr[] with indexes whereas msgid_plural was not set");
+                        if (!pluralNumbers.HasValue)
+                            throw new ArgumentException($"Plural is set in line '{poLine}' whereas no plural line forms in header");
+                        string translation = ParsePluralTranslation(poLine);
+                        var index = int.Parse(poLine.Substring(7, 1));
+                        // ignore incomplete localizations (empty msgid or msgstr)
+                        string scopedKey = (scope + "|" + id).ToLowerInvariant();
+                        if (cultureValue == null)
+                        {
+                            cultureValue = new CultureValue { Key = scopedKey, KeyPlural = idplural, PluralNValues = new string[pluralNumbers.Value] };
+                        }
+                        cultureValue.PluralNValues[index] = translation;
+                        id = scope = string.Empty;
+                        continue;
+
                     }
                 }
             }
@@ -238,10 +289,18 @@ namespace PofilesReader.Localization
         {
             return Unescape(poLine.Substring(6).Trim().Trim('"'));
         }
-
+        private static string ParsePluralTranslation(string poLine)
+        {
+            return Unescape(poLine.Substring(9).Trim().Trim('"'));
+        }
         private static string ParseId(string poLine)
         {
             return Unescape(poLine.Substring(5).Trim().Trim('"'));
+        }
+
+        private static string ParseIdPlural(string poLine)
+        {
+            return Unescape(poLine.Substring(12).Trim().Trim('"'));
         }
 
         private static string ParseScope(string poLine)
@@ -287,8 +346,9 @@ namespace PofilesReader.Localization
             }
             public string Key { get; set; }
 
-            public string Value { get; set; }
-            public string PluralValue { get; set; }
+            public string KeyPlural { get; set; }
+
+            public string Value { get { return PluralNValues[0]; } set { PluralNValues[0] = value; } }
 
             /// <summary>
             /// such as

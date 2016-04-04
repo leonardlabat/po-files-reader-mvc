@@ -1,6 +1,4 @@
-﻿# Copyright (C) 2016 WordPress
-# This file is distributed under the same license as the WordPress package.
-msgid ""
+﻿msgid ""
 msgstr ""
 "Project-Id-Version: WordPress 4.5-RC1-37154\n"
 "Report-Msgid-Bugs-To: https://make.wordpress.org/polyglots/\n"
@@ -8,13 +6,17 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2016-04-04 23:37+0200\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"X-Generator: Poedit 1.8.7\n"
 
-msgid "test"
-msgstr "check iteS"
-msgid_plural "check them"
+msgid "One book removed"
+msgid_plural "{0} books removed"
+msgstr[0] "one book really removed"
+msgstr[1] "{0} books really removed"
 
 #: wp-activate.php:74
 msgid "Activation Key Required"
@@ -233,14 +235,12 @@ msgid "Search"
 msgstr ""
 
 #. translators: 1: error message, 2: line number
-
 #: wp-includes/atomlib.php:144
 msgid "XML Error: %1$s at line %2$s"
 msgstr ""
 
 #. translators: %s: get_the_author()
 #. translators: %s: get_trackback_url()
-
 #: wp-includes/author-template.php:66 wp-includes/comment-template.php:1096
 msgid "Use %s instead if you do not want the value echoed."
 msgstr ""
@@ -262,7 +262,6 @@ msgid "Bookmarks"
 msgstr ""
 
 #. translators: 1: post type, 2: capability name
-
 #: wp-includes/capabilities.php:73 wp-includes/capabilities.php:134
 #: wp-includes/capabilities.php:193 wp-includes/capabilities.php:230
 msgid "The post type %1$s is not registered, so it may not be reliable to check the capability \"%2$s\" against a post of that type."
@@ -273,7 +272,6 @@ msgid "Uncategorized"
 msgstr ""
 
 #. translators: 1: "type => link", 2: "taxonomy => link_category" alternative
-
 #: wp-includes/category-template.php:378 wp-includes/category.php:46
 msgid "%1$s is deprecated. Use %2$s instead."
 msgstr ""
@@ -344,7 +342,6 @@ msgid "Your comment is awaiting moderation."
 msgstr ""
 
 #. translators: 1: comment date, 2: comment time
-
 #: wp-includes/class-walker-comment.php:286
 #: wp-includes/class-walker-comment.php:336
 msgid "%1$s at %2$s"
@@ -359,7 +356,6 @@ msgid "%s <span class=\"says\">says:</span>"
 msgstr ""
 
 #. translators: %d: ID of a post
-
 #: wp-includes/class-walker-page-dropdown.php:74
 #: wp-includes/class-walker-page.php:136
 #: wp-includes/class-wp-customize-nav-menus.php:171
@@ -415,19 +411,16 @@ msgstr ""
 
 #. translators: 1: panel id, 2: link to 'customize_loaded_components' filter
 #. reference
-
 #: wp-includes/class-wp-customize-manager.php:1216
 msgid "Removing %1$s manually will cause PHP warnings. Use the %2$s filter instead."
 msgstr ""
 
 #. translators: %s: document title from the preview
-
 #: wp-includes/class-wp-customize-manager.php:1525
 msgid "Customize: %s"
 msgstr ""
 
 #. translators: %s: document title from the preview
-
 #: wp-includes/class-wp-customize-manager.php:1528
 msgid "Live Preview: %s"
 msgstr ""
@@ -467,7 +460,6 @@ msgid "Site Icon"
 msgstr ""
 
 #. translators: %s: site icon size in pixels
-
 #: wp-includes/class-wp-customize-manager.php:1948
 msgid "The Site Icon is used as a browser and app icon for your site. Icons must be square, and at least %s pixels wide and tall."
 msgstr ""
@@ -650,7 +642,6 @@ msgid "(unnamed)"
 msgstr ""
 
 #. translators: %s: menu location
-
 #: wp-includes/class-wp-customize-nav-menus.php:372
 msgctxt "menu"
 msgid "(Currently set to: %s)"
@@ -694,7 +685,6 @@ msgstr ""
 
 #. translators: &#9656; is the unicode right-pointing triangle, and %s is the
 #. section title in the Customizer
-
 #: wp-includes/class-wp-customize-nav-menus.php:383
 #: wp-includes/class-wp-customize-nav-menus.php:752
 #: wp-includes/class-wp-customize-section.php:234
@@ -703,13 +693,11 @@ msgid "Customizing &#9656; %s"
 msgstr ""
 
 #. translators: %s: title of menu item which is invalid
-
 #: wp-includes/class-wp-customize-nav-menus.php:385
 msgid "%s (Invalid)"
 msgstr ""
 
 #. translators: %s: title of menu item in draft status
-
 #: wp-includes/class-wp-customize-nav-menus.php:387
 msgid "%s (Pending)"
 msgstr ""
@@ -759,37 +747,31 @@ msgid "Move to the top"
 msgstr ""
 
 #. translators: %s: previous item name
-
 #: wp-includes/class-wp-customize-nav-menus.php:415
 msgid "Move under %s"
 msgstr ""
 
 #. translators: %s: previous item name
-
 #: wp-includes/class-wp-customize-nav-menus.php:417
 msgid "Move out from under %s"
 msgstr ""
 
 #. translators: %s: previous item name
-
 #: wp-includes/class-wp-customize-nav-menus.php:419
 msgid "Under %s"
 msgstr ""
 
 #. translators: %s: previous item name
-
 #: wp-includes/class-wp-customize-nav-menus.php:421
 msgid "Out from under %s"
 msgstr ""
 
 #. translators: 1: item name, 2: item position, 3: total number of items
-
 #: wp-includes/class-wp-customize-nav-menus.php:423
 msgid "%1$s. Menu item %2$d of %3$d."
 msgstr ""
 
 #. translators: 1: item name, 2: item position, 3: parent item name
-
 #: wp-includes/class-wp-customize-nav-menus.php:425
 msgid "%1$s. Sub item number %2$d under %3$s."
 msgstr ""
@@ -833,7 +815,6 @@ msgid "New menu name"
 msgstr ""
 
 #. translators: 1: Title of a menu item, 2: Type of a menu item
-
 #: wp-includes/class-wp-customize-nav-menus.php:711
 msgid "Add to menu: %1$s (%2$s)"
 msgstr ""
@@ -915,7 +896,6 @@ msgid "No items"
 msgstr ""
 
 #. translators: %s: Title of a section with menu items
-
 #: wp-includes/class-wp-customize-nav-menus.php:807
 msgid "Toggle section: %s"
 msgstr ""
@@ -925,7 +905,6 @@ msgid "Press return or enter to open this panel"
 msgstr ""
 
 #. translators: %s: the site/panel title in the Customizer
-
 #: wp-includes/class-wp-customize-panel.php:372
 #: wp-includes/customize/class-wp-customize-nav-menus-panel.php:81
 msgid "You are customizing %s"
@@ -1062,7 +1041,6 @@ msgid "Heading 6"
 msgstr ""
 
 #. translators: block tags
-
 #: wp-includes/class-wp-editor.php:833
 msgctxt "TinyMCE"
 msgid "Blocks"
@@ -1485,7 +1463,6 @@ msgid "Next"
 msgstr ""
 
 #. translators: previous
-
 #: wp-includes/class-wp-editor.php:947
 msgctxt "find/replace"
 msgid "Prev"
@@ -1758,7 +1735,6 @@ msgid "Show invisible characters"
 msgstr ""
 
 #. translators: word count
-
 #: wp-includes/class-wp-editor.php:1022
 msgid "Words: %s"
 msgstr ""
@@ -2014,7 +1990,6 @@ msgid "Image Editor Save Failed"
 msgstr ""
 
 #. translators: %s: ImageMagick method name
-
 #: wp-includes/class-wp-image-editor-imagick.php:688
 #: wp-includes/class-wp-image-editor-imagick.php:693
 msgid "%s is required to strip image meta."
@@ -2065,7 +2040,6 @@ msgid "Stylesheet is not readable."
 msgstr ""
 
 #. translators: 1: index.php, 2: Codex URL, 3: style.css
-
 #: wp-includes/class-wp-theme.php:273
 msgid "Template is missing. Standalone themes need to have a %1$s template file. <a href=\"%2$s\">Child themes</a> need to have a Template header in the %3$s stylesheet."
 msgstr ""
@@ -2087,13 +2061,11 @@ msgid "Anonymous"
 msgstr ""
 
 #. translators: used between list items, there is a space after the comma
-
 #: wp-includes/class-wp-theme.php:738
 msgid ", "
 msgstr ""
 
 #. translators: %s: WP_User->ID
-
 #: wp-includes/class-wp-user.php:275 wp-includes/class-wp-user.php:305
 #: wp-includes/class-wp-user.php:344 wp-includes/class-wp-user.php:368
 msgid "Use %s instead."
@@ -2708,7 +2680,6 @@ msgid "The specified target URL does not exist."
 msgstr ""
 
 #. translators: %s: number of comments
-
 #: wp-includes/comment-template.php:873
 msgid "%s Comment"
 msgid_plural "%s Comments"
@@ -2737,19 +2708,16 @@ msgid "Pingback"
 msgstr ""
 
 #. translators: %s: post title
-
 #: wp-includes/comment-template.php:1456
 msgid "No Comments<span class=\"screen-reader-text\"> on %s</span>"
 msgstr ""
 
 #. translators: %s: post title
-
 #: wp-includes/comment-template.php:1461
 msgid "1 Comment<span class=\"screen-reader-text\"> on %s</span>"
 msgstr ""
 
 #. translators: 1: Number of comments 2: post title
-
 #: wp-includes/comment-template.php:1466
 msgid "%1$s Comment<span class=\"screen-reader-text\"> on %2$s</span>"
 msgid_plural "%1$s Comments<span class=\"screen-reader-text\"> on %2$s</span>"
@@ -2757,7 +2725,6 @@ msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %s: post title
-
 #: wp-includes/comment-template.php:1472
 msgid "Comments Off<span class=\"screen-reader-text\"> on %s</span>"
 msgstr ""
@@ -2815,20 +2782,17 @@ msgid "Required fields are marked %s"
 msgstr ""
 
 #. translators: %s: login URL
-
 #: wp-includes/comment-template.php:2152
 msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
 msgstr ""
 
 #. translators: 1: edit user link, 2: accessibility text, 3: user name, 4:
 #. logout URL
-
 #: wp-includes/comment-template.php:2158
 msgid "<a href=\"%1$s\" aria-label=\"%2$s\">Logged in as %3$s</a>. <a href=\"%4$s\">Log out?</a>"
 msgstr ""
 
 #. translators: %s: user name
-
 #: wp-includes/comment-template.php:2161
 msgid "Logged in as %s. Edit your profile."
 msgstr ""
@@ -2961,19 +2925,16 @@ msgid "No image set"
 msgstr ""
 
 #. translators: %s: header size in pixels
-
 #: wp-includes/customize/class-wp-customize-header-image-control.php:180
 msgid "While you can crop images to your liking after clicking <strong>Add new image</strong>, your theme recommends a header size of %s pixels."
 msgstr ""
 
 #. translators: %s: header width in pixels
-
 #: wp-includes/customize/class-wp-customize-header-image-control.php:185
 msgid "While you can crop images to your liking after clicking <strong>Add new image</strong>, your theme recommends a header width of %s pixels."
 msgstr ""
 
 #. translators: %s: header height in pixels
-
 #: wp-includes/customize/class-wp-customize-header-image-control.php:190
 msgid "While you can crop images to your liking after clicking <strong>Add new image</strong>, your theme recommends a header height of %s pixels."
 msgstr ""
@@ -3082,20 +3043,17 @@ msgid "Menu locations"
 msgstr ""
 
 #. translators: %s: menu name
-
 #: wp-includes/customize/class-wp-customize-nav-menu-control.php:76
 msgctxt "menu location"
 msgid "(Current: %s)"
 msgstr ""
 
 #. translators: 1: Title of a menu item, 2: Type of a menu item
-
 #: wp-includes/customize/class-wp-customize-nav-menu-item-control.php:77
 msgid "Edit menu item: %1$s (%2$s)"
 msgstr ""
 
 #. translators: 1: Title of a menu item, 2: Type of a menu item
-
 #: wp-includes/customize/class-wp-customize-nav-menu-item-control.php:81
 msgid "Remove Menu Item: %1$s (%2$s)"
 msgstr ""
@@ -3125,7 +3083,6 @@ msgid "Original: %s"
 msgstr ""
 
 #. translators: 1: original menu name, 2: duplicate count
-
 #: wp-includes/customize/class-wp-customize-nav-menu-setting.php:522
 msgid "%1$s (%2$d)"
 msgstr ""
@@ -3143,7 +3100,6 @@ msgid "Partial render must echo the content or return the content string (or arr
 msgstr ""
 
 #. translators: %s: document.write()
-
 #: wp-includes/customize/class-wp-customize-selective-refresh.php:188
 msgid "%s is forbidden"
 msgstr ""
@@ -3171,7 +3127,6 @@ msgid "By %s"
 msgstr ""
 
 #. translators: %s: theme name
-
 #: wp-includes/customize/class-wp-customize-theme-control.php:96
 msgid "<span>Active:</span> %s"
 msgstr ""
@@ -3217,19 +3172,16 @@ msgstr ""
 
 #. translators: Date query invalid date message: 1: invalid value, 2: type of
 #. value, 3: minimum valid value, 4: maximum valid value
-
 #: wp-includes/date.php:411
 msgid "Invalid value %1$s for %2$s. Expected value should be between %3$s and %4$s."
 msgstr ""
 
 #. translators: 1: year, 2: month, 3: day of month
-
 #: wp-includes/date.php:441
 msgid "The following values do not describe a valid date: year %1$s, month %2$s, day %3$s."
 msgstr ""
 
 #. translators: 1: month, 2: day of month
-
 #: wp-includes/date.php:458
 msgid "The following values do not describe a valid date: month %1$s, day %2$s."
 msgstr ""
@@ -3280,13 +3232,11 @@ msgid "File &#8220;%s&#8221; is not an image."
 msgstr ""
 
 #. translators: 1: post title, 2: site name
-
 #: wp-includes/embed.php:496
 msgid "&#8220;%1$s&#8221; &#8212; %2$s"
 msgstr ""
 
 #. translators: %s: Name of current post
-
 #: wp-includes/embed.php:826
 msgid "Continue reading %s"
 msgstr ""
@@ -3354,69 +3304,59 @@ msgid "Protected Comments: Please enter your password to view comments."
 msgstr ""
 
 #. translators: %s: 'document_title_separator' filter name
-
 #: wp-includes/feed.php:102 wp-includes/feed.php:128
 msgid "Use the %s filter instead."
 msgstr ""
 
 #. translators: opening curly double quote
-
 #: wp-includes/formatting.php:88 wp-includes/formatting.php:4326
 msgctxt "opening curly double quote"
 msgid "&#8220;"
 msgstr ""
 
 #. translators: closing curly double quote
-
 #: wp-includes/formatting.php:90
 msgctxt "closing curly double quote"
 msgid "&#8221;"
 msgstr ""
 
 #. translators: apostrophe, for example in 'cause or can't
-
 #: wp-includes/formatting.php:93
 msgctxt "apostrophe"
 msgid "&#8217;"
 msgstr ""
 
 #. translators: prime, for example in 9' (nine feet)
-
 #: wp-includes/formatting.php:96
 msgctxt "prime"
 msgid "&#8242;"
 msgstr ""
 
 #. translators: double prime, for example in 9" (nine inches)
-
 #: wp-includes/formatting.php:98
 msgctxt "double prime"
 msgid "&#8243;"
 msgstr ""
 
 #. translators: opening curly single quote
-
 #: wp-includes/formatting.php:101
 msgctxt "opening curly single quote"
 msgid "&#8216;"
 msgstr ""
 
 #. translators: closing curly single quote
-
 #: wp-includes/formatting.php:103
 msgctxt "closing curly single quote"
 msgid "&#8217;"
 msgstr ""
 
 #. translators: en dash
-
 #: wp-includes/formatting.php:106
 msgctxt "en dash"
 msgid "&#8211;"
 msgstr ""
 
 #. translators: em dash
-
 #: wp-includes/formatting.php:108
 msgctxt "em dash"
 msgid "&#8212;"
@@ -3426,7 +3366,6 @@ msgstr ""
 #. quotations in normal use, for example...  'We do not have enough words yet'
 #. ... is a typical quoted phrase.  But when we write lines of code 'til we
 #. have enough of 'em, then we need to insert apostrophes instead of quotes.
-
 #: wp-includes/formatting.php:122
 msgctxt "Comma-separated list of words to texturize in your language"
 msgid "'tain't,'twere,'twas,'tis,'twill,'til,'bout,'nuff,'round,'cause,'em"
@@ -3438,7 +3377,6 @@ msgid "&#8217;tain&#8217;t,&#8217;twere,&#8217;twas,&#8217;tis,&#8217;twill,&#82
 msgstr ""
 
 #. translators: min=minute
-
 #: wp-includes/formatting.php:2834
 msgid "%s min"
 msgid_plural "%s mins"
@@ -3483,7 +3421,6 @@ msgstr ""
 #. Asian characters), enter 'characters_excluding_spaces' or
 #. 'characters_including_spaces'. Otherwise, enter 'words'. Do not translate
 #. into your own language.
-
 #: wp-includes/formatting.php:2957 wp-includes/script-loader.php:424
 msgctxt "Word count type. Do not translate!"
 msgid "words"
@@ -3506,26 +3443,22 @@ msgid "The timezone you have entered is not valid. Please select a valid timezon
 msgstr ""
 
 #. translators: used to join items in a list with more than 2 items
-
 #: wp-includes/formatting.php:4072
 msgid "%s, %s"
 msgstr ""
 
 #. translators: used to join last two items in a list with more than 2 times
-
 #: wp-includes/formatting.php:4074
 msgid "%s, and %s"
 msgstr ""
 
 #. translators: used to join items in a list with only 2 items
-
 #: wp-includes/formatting.php:4076
 msgid "%s and %s"
 msgstr ""
 
 #. translators: If months in your language require a genitive case, translate
 #. this to 'on'. Do not translate into your own language.
-
 #: wp-includes/functions.php:183
 msgctxt "decline months names: on or off"
 msgid "off"
@@ -3598,13 +3531,11 @@ msgstr ""
 
 #. translators: 1: PHP class name, 2: PHP parent class name, 3: version number,
 #. 4: __construct() method
-
 #: wp-includes/functions.php:3721
 msgid "The called constructor method for %1$s in %2$s is <strong>deprecated</strong> since version %3$s! Use %4$s instead."
 msgstr ""
 
 #. translators: 1: PHP class name, 2: version number, 3: __construct() method
-
 #: wp-includes/functions.php:3725
 msgid "The called constructor method for %1$s is <strong>deprecated</strong> since version %2$s! Use %3$s instead."
 msgstr ""
@@ -3622,7 +3553,6 @@ msgid "(This message was added in version %s.)"
 msgstr ""
 
 #. translators: %s: Codex URL
-
 #: wp-includes/functions.php:3898
 msgid "Please see <a href=\"%s\">Debugging in WordPress</a> for more information."
 msgstr ""
@@ -3730,7 +3660,6 @@ msgstr ""
 
 #. translators: 1: 'siteurl'/'home' argument, 2: bloginfo() function name, 3:
 #. 'url' argument
-
 #: wp-includes/general-template.php:651
 msgid "The %1$s option is deprecated for the family of %2$s functions. Use the %3$s option instead."
 msgstr ""
@@ -3738,14 +3667,12 @@ msgstr ""
 #. translators: Translate this to the correct language tag for your locale, see
 #. https://www.w3.org/International/articles/language-tags/ for reference. Do
 #. not translate into your own language.
-
 #: wp-includes/general-template.php:715
 msgid "html_lang_attribute"
 msgstr ""
 
 #. translators: 1: 'text_direction' argument, 2: bloginfo() function name, 3:
 #. is_rtl() function name
-
 #: wp-includes/general-template.php:724
 msgid "The %1$s option is deprecated for the family of %2$s functions. Use the %3$s function instead."
 msgstr ""
@@ -3755,7 +3682,6 @@ msgid "Page not found"
 msgstr ""
 
 #. translators: %s: search phrase
-
 #: wp-includes/general-template.php:963
 msgid "Search Results for &#8220;%s&#8221;"
 msgstr ""
@@ -3775,7 +3701,6 @@ msgid "Page %s"
 msgstr ""
 
 #. translators: 1: separator, 2: search phrase
-
 #: wp-includes/general-template.php:1168
 msgid "Search Results %1$s %2$s"
 msgstr ""
@@ -3859,7 +3784,6 @@ msgid "Archives: %s"
 msgstr ""
 
 #. translators: 1: Taxonomy singular name, 2: Current taxonomy term
-
 #: wp-includes/general-template.php:1489
 msgid "%1$s: %2$s"
 msgstr ""
@@ -3872,13 +3796,11 @@ msgid "Archives"
 msgstr ""
 
 #. translators: 1: month name, 2: 4-digit year
-
 #: wp-includes/general-template.php:1722 wp-includes/media.php:3279
 msgid "%1$s %2$d"
 msgstr ""
 
 #. translators: Calendar caption: 1: month name, 2: 4-digit year
-
 #: wp-includes/general-template.php:1947
 msgctxt "calendar caption"
 msgid "%1$s %2$s"
@@ -3889,63 +3811,53 @@ msgid "Posts published on %s"
 msgstr ""
 
 #. translators: Separator between blog name and feed type in feed links
-
 #: wp-includes/general-template.php:2558 wp-includes/general-template.php:2600
 msgctxt "feed link"
 msgid "&raquo;"
 msgstr ""
 
 #. translators: 1: blog title, 2: separator (raquo)
-
 #: wp-includes/general-template.php:2560
 msgid "%1$s %2$s Feed"
 msgstr ""
 
 #. translators: 1: blog title, 2: separator (raquo)
-
 #: wp-includes/general-template.php:2562
 msgid "%1$s %2$s Comments Feed"
 msgstr ""
 
 #. translators: 1: blog name, 2: separator(raquo), 3: post title
-
 #: wp-includes/general-template.php:2602
 msgid "%1$s %2$s %3$s Comments Feed"
 msgstr ""
 
 #. translators: 1: blog name, 2: separator(raquo), 3: category name
-
 #: wp-includes/general-template.php:2604
 msgid "%1$s %2$s %3$s Category Feed"
 msgstr ""
 
 #. translators: 1: blog name, 2: separator(raquo), 3: tag name
-
 #: wp-includes/general-template.php:2606
 msgid "%1$s %2$s %3$s Tag Feed"
 msgstr ""
 
 #. translators: 1: blog name, 2: separator(raquo), 3: term name, 4: taxonomy
 #. singular name
-
 #: wp-includes/general-template.php:2608
 msgid "%1$s %2$s %3$s %4$s Feed"
 msgstr ""
 
 #. translators: 1: blog name, 2: separator(raquo), 3: author name
-
 #: wp-includes/general-template.php:2610
 msgid "%1$s %2$s Posts by %3$s Feed"
 msgstr ""
 
 #. translators: 1: blog name, 2: separator(raquo), 3: search phrase
-
 #: wp-includes/general-template.php:2612
 msgid "%1$s %2$s Search Results for &#8220;%3$s&#8221; Feed"
 msgstr ""
 
 #. translators: 1: blog name, 2: separator(raquo), 3: post type name
-
 #: wp-includes/general-template.php:2614
 msgid "%1$s %2$s %3$s Feed"
 msgstr ""
@@ -4105,7 +4017,6 @@ msgid "Briefly unavailable for scheduled maintenance. Check back in a minute."
 msgstr ""
 
 #. translators: 1: $table_prefix 2: wp-config.php
-
 #: wp-includes/load.php:405
 msgid "<strong>ERROR</strong>: %1$s in %2$s can only contain numbers, letters, and underscores."
 msgstr ""
@@ -4115,380 +4026,323 @@ msgid "The site you have requested is not installed properly. Please contact the
 msgstr ""
 
 #. translators: weekday
-
 #: wp-includes/locale.php:112 wp-includes/locale.php:121
 #: wp-includes/locale.php:130
 msgid "Sunday"
 msgstr ""
 
 #. translators: weekday
-
 #: wp-includes/locale.php:113 wp-includes/locale.php:122
 #: wp-includes/locale.php:131
 msgid "Monday"
 msgstr ""
 
 #. translators: weekday
-
 #: wp-includes/locale.php:114 wp-includes/locale.php:123
 #: wp-includes/locale.php:132
 msgid "Tuesday"
 msgstr ""
 
 #. translators: weekday
-
 #: wp-includes/locale.php:115 wp-includes/locale.php:124
 #: wp-includes/locale.php:133
 msgid "Wednesday"
 msgstr ""
 
 #. translators: weekday
-
 #: wp-includes/locale.php:116 wp-includes/locale.php:125
 #: wp-includes/locale.php:134
 msgid "Thursday"
 msgstr ""
 
 #. translators: weekday
-
 #: wp-includes/locale.php:117 wp-includes/locale.php:126
 #: wp-includes/locale.php:135
 msgid "Friday"
 msgstr ""
 
 #. translators: weekday
-
 #: wp-includes/locale.php:118 wp-includes/locale.php:127
 #: wp-includes/locale.php:136
 msgid "Saturday"
 msgstr ""
 
 #. translators: one-letter abbreviation of the weekday
-
 #: wp-includes/locale.php:121
 msgctxt "Sunday initial"
 msgid "S"
 msgstr ""
 
 #. translators: one-letter abbreviation of the weekday
-
 #: wp-includes/locale.php:122
 msgctxt "Monday initial"
 msgid "M"
 msgstr ""
 
 #. translators: one-letter abbreviation of the weekday
-
 #: wp-includes/locale.php:123
 msgctxt "Tuesday initial"
 msgid "T"
 msgstr ""
 
 #. translators: one-letter abbreviation of the weekday
-
 #: wp-includes/locale.php:124
 msgctxt "Wednesday initial"
 msgid "W"
 msgstr ""
 
 #. translators: one-letter abbreviation of the weekday
-
 #: wp-includes/locale.php:125
 msgctxt "Thursday initial"
 msgid "T"
 msgstr ""
 
 #. translators: one-letter abbreviation of the weekday
-
 #: wp-includes/locale.php:126
 msgctxt "Friday initial"
 msgid "F"
 msgstr ""
 
 #. translators: one-letter abbreviation of the weekday
-
 #: wp-includes/locale.php:127
 msgctxt "Saturday initial"
 msgid "S"
 msgstr ""
 
 #. translators: three-letter abbreviation of the weekday
-
 #: wp-includes/locale.php:130
 msgid "Sun"
 msgstr ""
 
 #. translators: three-letter abbreviation of the weekday
-
 #: wp-includes/locale.php:131
 msgid "Mon"
 msgstr ""
 
 #. translators: three-letter abbreviation of the weekday
-
 #: wp-includes/locale.php:132
 msgid "Tue"
 msgstr ""
 
 #. translators: three-letter abbreviation of the weekday
-
 #: wp-includes/locale.php:133
 msgid "Wed"
 msgstr ""
 
 #. translators: three-letter abbreviation of the weekday
-
 #: wp-includes/locale.php:134
 msgid "Thu"
 msgstr ""
 
 #. translators: three-letter abbreviation of the weekday
-
 #: wp-includes/locale.php:135
 msgid "Fri"
 msgstr ""
 
 #. translators: three-letter abbreviation of the weekday
-
 #: wp-includes/locale.php:136
 msgid "Sat"
 msgstr ""
 
 #. translators: month name
-
 #: wp-includes/locale.php:139 wp-includes/locale.php:167
 msgid "January"
 msgstr ""
 
 #. translators: month name
-
 #: wp-includes/locale.php:140 wp-includes/locale.php:168
 msgid "February"
 msgstr ""
 
 #. translators: month name
-
 #: wp-includes/locale.php:141 wp-includes/locale.php:169
 msgid "March"
 msgstr ""
 
 #. translators: month name
-
 #: wp-includes/locale.php:142 wp-includes/locale.php:170
 msgid "April"
 msgstr ""
 
 #. translators: month name
-
 #: wp-includes/locale.php:143 wp-includes/locale.php:171
 msgid "May"
 msgstr ""
 
 #. translators: month name
-
 #: wp-includes/locale.php:144 wp-includes/locale.php:172
 msgid "June"
 msgstr ""
 
 #. translators: month name
-
 #: wp-includes/locale.php:145 wp-includes/locale.php:173
 msgid "July"
 msgstr ""
 
 #. translators: month name
-
 #: wp-includes/locale.php:146 wp-includes/locale.php:174
 msgid "August"
 msgstr ""
 
 #. translators: month name
-
 #: wp-includes/locale.php:147 wp-includes/locale.php:175
 msgid "September"
 msgstr ""
 
 #. translators: month name
-
 #: wp-includes/locale.php:148 wp-includes/locale.php:176
 msgid "October"
 msgstr ""
 
 #. translators: month name
-
 #: wp-includes/locale.php:149 wp-includes/locale.php:177
 msgid "November"
 msgstr ""
 
 #. translators: month name
-
 #: wp-includes/locale.php:150 wp-includes/locale.php:178
 msgid "December"
 msgstr ""
 
 #. translators: month name, genitive
-
 #: wp-includes/locale.php:153
 msgctxt "genitive"
 msgid "January"
 msgstr ""
 
 #. translators: month name, genitive
-
 #: wp-includes/locale.php:154
 msgctxt "genitive"
 msgid "February"
 msgstr ""
 
 #. translators: month name, genitive
-
 #: wp-includes/locale.php:155
 msgctxt "genitive"
 msgid "March"
 msgstr ""
 
 #. translators: month name, genitive
-
 #: wp-includes/locale.php:156
 msgctxt "genitive"
 msgid "April"
 msgstr ""
 
 #. translators: month name, genitive
-
 #: wp-includes/locale.php:157
 msgctxt "genitive"
 msgid "May"
 msgstr ""
 
 #. translators: month name, genitive
-
 #: wp-includes/locale.php:158
 msgctxt "genitive"
 msgid "June"
 msgstr ""
 
 #. translators: month name, genitive
-
 #: wp-includes/locale.php:159
 msgctxt "genitive"
 msgid "July"
 msgstr ""
 
 #. translators: month name, genitive
-
 #: wp-includes/locale.php:160
 msgctxt "genitive"
 msgid "August"
 msgstr ""
 
 #. translators: month name, genitive
-
 #: wp-includes/locale.php:161
 msgctxt "genitive"
 msgid "September"
 msgstr ""
 
 #. translators: month name, genitive
-
 #: wp-includes/locale.php:162
 msgctxt "genitive"
 msgid "October"
 msgstr ""
 
 #. translators: month name, genitive
-
 #: wp-includes/locale.php:163
 msgctxt "genitive"
 msgid "November"
 msgstr ""
 
 #. translators: month name, genitive
-
 #: wp-includes/locale.php:164
 msgctxt "genitive"
 msgid "December"
 msgstr ""
 
 #. translators: three-letter abbreviation of the month
-
 #: wp-includes/locale.php:167
 msgctxt "January abbreviation"
 msgid "Jan"
 msgstr ""
 
 #. translators: three-letter abbreviation of the month
-
 #: wp-includes/locale.php:168
 msgctxt "February abbreviation"
 msgid "Feb"
 msgstr ""
 
 #. translators: three-letter abbreviation of the month
-
 #: wp-includes/locale.php:169
 msgctxt "March abbreviation"
 msgid "Mar"
 msgstr ""
 
 #. translators: three-letter abbreviation of the month
-
 #: wp-includes/locale.php:170
 msgctxt "April abbreviation"
 msgid "Apr"
 msgstr ""
 
 #. translators: three-letter abbreviation of the month
-
 #: wp-includes/locale.php:171
 msgctxt "May abbreviation"
 msgid "May"
 msgstr ""
 
 #. translators: three-letter abbreviation of the month
-
 #: wp-includes/locale.php:172
 msgctxt "June abbreviation"
 msgid "Jun"
 msgstr ""
 
 #. translators: three-letter abbreviation of the month
-
 #: wp-includes/locale.php:173
 msgctxt "July abbreviation"
 msgid "Jul"
 msgstr ""
 
 #. translators: three-letter abbreviation of the month
-
 #: wp-includes/locale.php:174
 msgctxt "August abbreviation"
 msgid "Aug"
 msgstr ""
 
 #. translators: three-letter abbreviation of the month
-
 #: wp-includes/locale.php:175
 msgctxt "September abbreviation"
 msgid "Sep"
 msgstr ""
 
 #. translators: three-letter abbreviation of the month
-
 #: wp-includes/locale.php:176
 msgctxt "October abbreviation"
 msgid "Oct"
 msgstr ""
 
 #. translators: three-letter abbreviation of the month
-
 #: wp-includes/locale.php:177
 msgctxt "November abbreviation"
 msgid "Nov"
 msgstr ""
 
 #. translators: three-letter abbreviation of the month
-
 #: wp-includes/locale.php:178
 msgctxt "December abbreviation"
 msgid "Dec"
@@ -4512,45 +4366,38 @@ msgstr ""
 
 #. translators: $thousands_sep argument for http://php.net/number_format,
 #. default is ,
-
 #: wp-includes/locale.php:190
 msgid "number_format_thousands_sep"
 msgstr ""
 
 #. translators: $dec_point argument for http://php.net/number_format, default
 #. is .
-
 #: wp-includes/locale.php:203
 msgid "number_format_decimal_point"
 msgstr ""
 
 #. translators: 'rtl' or 'ltr'. This sets the text direction for WordPress.
-
 #: wp-includes/locale.php:211
 msgctxt "text direction"
 msgid "ltr"
 msgstr ""
 
 #. translators: %s: Name of the directory (build)
-
 #: wp-includes/locale.php:228
 msgid "The %s directory of the develop repository must be used for RTL."
 msgstr ""
 
 #. translators: localized date format, see http://php.net/date
-
 #: wp-includes/locale.php:387 wp-includes/media.php:3040
 msgid "F j, Y"
 msgstr ""
 
 #. translators: localized time format, see http://php.net/date
-
 #: wp-includes/locale.php:389
 msgid "g:i a"
 msgstr ""
 
 #. translators: localized date and time format, see http://php.net/date
-
 #: wp-includes/locale.php:391
 msgid "F j, Y g:i a"
 msgstr ""
@@ -4946,7 +4793,6 @@ msgid "As an app icon"
 msgstr ""
 
 #. translators: playlist item title
-
 #: wp-includes/media.php:1778 wp-includes/media.php:1793
 msgctxt "playlist item title"
 msgid "&#8220;%s&#8221;"
@@ -4995,11 +4841,10 @@ msgstr ""
 msgid "Update"
 msgstr ""
 
-#. translators: This is a would-be plural string used in the media manager. 		 
-#.  If there is not a word you can use in your language to avoid issues with
+#. translators: This is a would-be plural string used in the media manager.
+#. If there is not a word you can use in your language to avoid issues with
 #. the 		   lack of plural support here, turn it into "selected: %d" then
 #. translate it.
-
 #: wp-includes/media.php:3350
 msgid "%d selected"
 msgstr ""
@@ -5282,7 +5127,6 @@ msgstr ""
 
 #. translators: 1: VHOST, 2: SUBDOMAIN_INSTALL, 3: wp-config.php, 4:
 #. is_subdomain_install()
-
 #: wp-includes/ms-default-constants.php:134
 msgid "The constant %1$s <strong>is deprecated</strong>. Use the boolean constant %2$s in %3$s to enable a subdomain configuration. Use %4$s to check whether a subdomain configuration is enabled."
 msgstr ""
@@ -5485,7 +5329,6 @@ msgstr ""
 
 #. translators: Do not translate USERNAME, SITE_NAME, BLOG_URL, PASSWORD: those
 #. are placeholders.
-
 #: wp-includes/ms-functions.php:1441
 msgid ""
 "Howdy USERNAME,\n"
@@ -5530,7 +5373,6 @@ msgstr ""
 
 #. translators: Do not translate USERNAME, PASSWORD, LOGINLINK, SITE_NAME:
 #. those are placeholders.
-
 #: wp-includes/ms-functions.php:2118
 msgid ""
 "Howdy USERNAME,\n"
@@ -5552,7 +5394,6 @@ msgid "This site is no longer available."
 msgstr ""
 
 #. translators: %s: admin email link
-
 #: wp-includes/ms-load.php:102
 msgid "This site has not been activated yet. If you are having problems activating your site, please contact %s."
 msgstr ""
@@ -5570,13 +5411,11 @@ msgid "If you are the owner of this network please check that MySQL is running p
 msgstr ""
 
 #. translators: %s: table name
-
 #: wp-includes/ms-load.php:295
 msgid "<strong>Database tables are missing.</strong> This means that MySQL is not running, WordPress was not installed properly, or someone deleted %s. You really should look at your database now."
 msgstr ""
 
 #. translators: 1: site url, 2: table name, 3: database name
-
 #: wp-includes/ms-load.php:301
 msgid "<strong>Could not find site %1$s.</strong> Searched for table %2$s in database %3$s. Is that right?"
 msgstr ""
@@ -5586,7 +5425,6 @@ msgid "What do I do now?"
 msgstr ""
 
 #. translators: %s: Codex URL
-
 #: wp-includes/ms-load.php:309
 msgid "Read the <a href=\"%s\" target=\"_blank\">bug report</a> page. Some of the guidelines there may help you figure out what went wrong."
 msgstr ""
@@ -5600,7 +5438,6 @@ msgid "If you&#8217;re still stuck with this message, then check that your datab
 msgstr ""
 
 #. translators: %s: menu name
-
 #: wp-includes/nav-menu.php:289 wp-includes/nav-menu.php:302
 msgid "The menu name %s conflicts with another menu name. Please try another."
 msgstr ""
@@ -5630,7 +5467,6 @@ msgid "New trackback on your post \"%s\""
 msgstr ""
 
 #. translators: 1: website name, 2: website IP, 3: website hostname
-
 #: wp-includes/pluggable.php:1425 wp-includes/pluggable.php:1435
 #: wp-includes/pluggable.php:1578 wp-includes/pluggable.php:1586
 msgid "Website: %1$s (IP: %2$s, %3$s)"
@@ -5652,7 +5488,6 @@ msgid "You can see all trackbacks on this post here:"
 msgstr ""
 
 #. translators: 1: blog name, 2: post title
-
 #: wp-includes/pluggable.php:1430
 msgid "[%1$s] Trackback: \"%2$s\""
 msgstr ""
@@ -5666,7 +5501,6 @@ msgid "You can see all pingbacks on this post here:"
 msgstr ""
 
 #. translators: 1: blog name, 2: post title
-
 #: wp-includes/pluggable.php:1440
 msgid "[%1$s] Pingback: \"%2$s\""
 msgstr ""
@@ -5676,7 +5510,6 @@ msgid "New comment on your post \"%s\""
 msgstr ""
 
 #. translators: 1: comment author, 2: author IP, 3: author domain
-
 #: wp-includes/pluggable.php:1445 wp-includes/pluggable.php:1593
 msgid "Author: %1$s (IP: %2$s, %3$s)"
 msgstr ""
@@ -5691,7 +5524,6 @@ msgid "You can see all comments on this post here:"
 msgstr ""
 
 #. translators: 1: blog name, 2: post title
-
 #: wp-includes/pluggable.php:1451
 msgid "[%1$s] Comment: \"%2$s\""
 msgstr ""
@@ -5881,21 +5713,18 @@ msgid "Enter"
 msgstr ""
 
 #. translators: revision date format, see http://php.net/date
-
 #: wp-includes/post-template.php:1628 wp-includes/post-template.php:1664
 msgctxt "revision date format"
 msgid "F j, Y @ H:i:s"
 msgstr ""
 
 #. translators: 1: date
-
 #: wp-includes/post-template.php:1630
 msgctxt "post revision title extra"
 msgid "%1$s [Autosave]"
 msgstr ""
 
 #. translators: 1: date
-
 #: wp-includes/post-template.php:1632
 msgctxt "post revision title extra"
 msgid "%1$s [Current Revision]"
@@ -5903,7 +5732,6 @@ msgstr ""
 
 #. translators: post revision title: 1: author avatar, 2: author name, 3: time
 #. ago, 4: date
-
 #: wp-includes/post-template.php:1674
 msgctxt "post revision title"
 msgid "%1$s %2$s, %3$s ago (%4$s)"
@@ -6283,7 +6111,6 @@ msgid "Could not insert post into the database"
 msgstr ""
 
 #. translators: %s: taxonomy name
-
 #: wp-includes/post.php:3389
 msgid "Invalid taxonomy: %s."
 msgstr ""
@@ -6316,7 +6143,6 @@ msgstr ""
 
 #. translators: 1: pre_get_posts 2: WP_Query->is_main_query() 3:
 #. is_main_query() 4: link to codex is_main_query() page.
-
 #: wp-includes/query.php:734
 msgid "In %1$s, use the %2$s method, not the %3$s function. See %4$s."
 msgstr ""
@@ -6330,7 +6156,6 @@ msgstr ""
 #. "stopwords". You should not simply translate these individual words into
 #. your language. Instead, look for and provide commonly accepted stopwords in
 #. your language.
-
 #: wp-includes/query.php:2225
 msgctxt "Comma-separated list of search stopwords in your language"
 msgid "about,an,are,as,at,be,by,com,for,from,how,in,is,it,of,on,or,that,the,this,to,was,what,when,where,who,will,with,www"
@@ -6394,19 +6219,16 @@ msgstr ""
 
 #. translators: 1: function name, 2: WordPress version number, 3: new function
 #. name
-
 #: wp-includes/rest-api.php:353
 msgid "%1$s (since %2$s; use %3$s instead)"
 msgstr ""
 
 #. translators: 1: function name, 2: WordPress version number
-
 #: wp-includes/rest-api.php:356 wp-includes/rest-api.php:377
 msgid "%1$s (since %2$s; no alternative available)"
 msgstr ""
 
 #. translators: 1: function name, 2: WordPress version number, 3: error message
-
 #: wp-includes/rest-api.php:374
 msgid "%1$s (since %2$s; %3$s)"
 msgstr ""
@@ -6544,7 +6366,6 @@ msgid "No search results."
 msgstr ""
 
 #. translators: Number of results found when using jQuery UI Autocomplete
-
 #: wp-includes/script-loader.php:231
 msgid "1 result found. Use up and down arrow keys to navigate."
 msgstr ""
@@ -6793,7 +6614,6 @@ msgid "Comments"
 msgstr ""
 
 #. translators: %s: comments count
-
 #: wp-includes/script-loader.php:499
 msgid "Comments (%s)"
 msgstr ""
@@ -6815,7 +6635,6 @@ msgid "Published on:"
 msgstr ""
 
 #. translators: 1: month, 2: day, 3: year, 4: hour, 5: minute
-
 #: wp-includes/script-loader.php:522 wp-includes/script-loader.php:561
 msgid "%1$s %2$s, %3$s @ %4$s:%5$s"
 msgstr ""
@@ -6873,13 +6692,11 @@ msgid "Connection lost or the server is busy. Please try again later."
 msgstr ""
 
 #. translators: %d: nth embed found in a post
-
 #: wp-includes/script-loader.php:547
 msgid "Suggested embed #%d"
 msgstr ""
 
 #. translators: %d: nth image found in a post
-
 #: wp-includes/script-loader.php:549
 msgid "Suggested image #%d"
 msgstr ""
@@ -6925,43 +6742,36 @@ msgid "Update Failed!"
 msgstr ""
 
 #. translators: Error string for a failed update
-
 #: wp-includes/script-loader.php:600
 msgid "Update Failed: %s"
 msgstr ""
 
 #. translators: Plugin name and version
-
 #: wp-includes/script-loader.php:602
 msgid "Updating %s..."
 msgstr ""
 
 #. translators: Plugin name and version
-
 #: wp-includes/script-loader.php:604
 msgid "%s updated!"
 msgstr ""
 
 #. translators: Plugin name and version
-
 #: wp-includes/script-loader.php:606
 msgid "%s update failed"
 msgstr ""
 
 #. translators: JavaScript accessible string
-
 #: wp-includes/script-loader.php:608
 msgid "Updating... please wait."
 msgstr ""
 
 #. translators: JavaScript accessible string
-
 #: wp-includes/script-loader.php:610
 msgid "Update completed successfully."
 msgstr ""
 
 #. translators: JavaScript accessible string
-
 #: wp-includes/script-loader.php:612
 msgid "Update canceled."
 msgstr ""
@@ -7003,7 +6813,6 @@ msgstr ""
 #. translators: If there are characters in your language that are not supported
 #. by Open Sans, translate this to 'off'. Do not translate into your own
 #. language.
-
 #: wp-includes/script-loader.php:703
 msgctxt "Open Sans font: on or off"
 msgid "on"
@@ -7012,7 +6821,6 @@ msgstr ""
 #. translators: To add an additional Open Sans character subset specific to
 #. your language, translate this to 'greek', 'cyrillic' or 'vietnamese'. Do not
 #. translate into your own language.
-
 #: wp-includes/script-loader.php:709
 msgctxt "Open Sans font: add new subset (greek, cyrillic, vietnamese)"
 msgid "no-subset"
@@ -7024,13 +6832,11 @@ msgstr ""
 
 #. translators: 1: shortcode name, 2: space separated list of reserved
 #. characters
-
 #: wp-includes/shortcodes.php:100
 msgid "Invalid shortcode name: %1$s. Do not use spaces or reserved characters: %2$s"
 msgstr ""
 
 #. translators: %s: shortcode tag
-
 #: wp-includes/shortcodes.php:319
 msgid "Attempting to parse a shortcode without a valid callback: %s"
 msgstr ""
@@ -7255,7 +7061,6 @@ msgstr ""
 
 #. translators: %s: taxonomy label, %l: list of terms formatted as per
 #. $term_template
-
 #: wp-includes/taxonomy.php:4657
 msgid "%s: %l."
 msgstr ""
@@ -7265,7 +7070,6 @@ msgid "Invalid object ID"
 msgstr ""
 
 #. translators: %s: template name
-
 #: wp-includes/theme-compat/comments.php:12
 #: wp-includes/theme-compat/footer.php:12
 #: wp-includes/theme-compat/header.php:12
@@ -7274,7 +7078,6 @@ msgid "Theme without %s"
 msgstr ""
 
 #. translators: %s: template name
-
 #: wp-includes/theme-compat/comments.php:16
 #: wp-includes/theme-compat/footer.php:16
 #: wp-includes/theme-compat/header.php:16
@@ -7287,13 +7090,11 @@ msgid "This post is password protected. Enter the password to view comments."
 msgstr ""
 
 #. translators: %s: post title
-
 #: wp-includes/theme-compat/comments.php:37
 msgid "One response to %s"
 msgstr ""
 
 #. translators: 1: number of comments, 2: post title
-
 #: wp-includes/theme-compat/comments.php:40
 msgid "%1$s response to %2$s"
 msgid_plural "%1$s responses to %2$s"
@@ -7309,25 +7110,21 @@ msgid "Oops! That embed can&#8217;t be found."
 msgstr ""
 
 #. translators: %s: a link to the embedded site
-
 #: wp-includes/theme-compat/embed-404.php:21
 msgid "It looks like nothing was found at this location. Maybe try visiting %s directly?"
 msgstr ""
 
 #. translators: 1: blog name, 2: WordPress
-
 #: wp-includes/theme-compat/footer.php:27
 msgid "%1$s is proudly powered by %2$s"
 msgstr ""
 
 #. translators: %s: category name
-
 #: wp-includes/theme-compat/sidebar.php:40
 msgid "You are currently browsing the archives for the %s category."
 msgstr ""
 
 #. translators: 1: site link, 2: archive date
-
 #: wp-includes/theme-compat/sidebar.php:47
 msgid "You are currently browsing the %1$s blog archives for the day %2$s."
 msgstr ""
@@ -7337,7 +7134,6 @@ msgid "l, F jS, Y"
 msgstr ""
 
 #. translators: 1: site link, 2: archive month
-
 #: wp-includes/theme-compat/sidebar.php:55
 msgid "You are currently browsing the %1$s blog archives for %2$s."
 msgstr ""
@@ -7347,19 +7143,16 @@ msgid "F, Y"
 msgstr ""
 
 #. translators: 1: site link, 2: archive year
-
 #: wp-includes/theme-compat/sidebar.php:63
 msgid "You are currently browsing the %1$s blog archives for the year %2$s."
 msgstr ""
 
 #. translators: 1: site link, 2: search query
-
 #: wp-includes/theme-compat/sidebar.php:71
 msgid "You have searched the %1$s blog archives for <strong>&#8216;%2$s&#8217;</strong>. If you are unable to find anything in these search results, you can try one of these links."
 msgstr ""
 
 #. translators: %s: site link
-
 #: wp-includes/theme-compat/sidebar.php:79
 msgid "You are currently browsing the %s blog archives."
 msgstr ""
@@ -7375,7 +7168,6 @@ msgid "You need to pass an array of types."
 msgstr ""
 
 #. translators: 1: Theme support 2: hook name
-
 #: wp-includes/theme.php:1704
 msgid "Theme support for %1$s should be registered before the %2$s hook."
 msgstr ""
@@ -7432,7 +7224,6 @@ msgid "Lost your password?"
 msgstr ""
 
 #. translators: %s: user name
-
 #: wp-includes/user.php:164
 msgid "<strong>ERROR</strong>: The password you entered for the username %s is incorrect."
 msgstr ""
@@ -7446,7 +7237,6 @@ msgid "<strong>ERROR</strong>: Invalid email address."
 msgstr ""
 
 #. translators: %s: email address
-
 #: wp-includes/user.php:236
 msgid "<strong>ERROR</strong>: The password you entered for the email address %s is incorrect."
 msgstr ""
@@ -7456,7 +7246,6 @@ msgid "<strong>ERROR</strong>: Your account has been marked as a spammer."
 msgstr ""
 
 #. translators: 1: display name, 2: user_login
-
 #: wp-includes/user.php:1072
 msgctxt "user dropdown"
 msgid "%1$s (%2$s)"
@@ -7471,7 +7260,6 @@ msgid "Nicename may not be longer than 50 characters."
 msgstr ""
 
 #. translators: 1: first name, 2: last name
-
 #: wp-includes/user.php:1531
 msgctxt "Display name based on first name and last name"
 msgid "%1$s %2$s"
@@ -7479,7 +7267,6 @@ msgstr ""
 
 #. translators: Do not translate USERNAME, ADMIN_EMAIL, EMAIL, SITENAME,
 #. SITEURL: those are placeholders.
-
 #: wp-includes/user.php:1770
 msgid ""
 "Hi ###USERNAME###,\n"
@@ -7502,7 +7289,6 @@ msgstr ""
 
 #. translators: Do not translate USERNAME, ADMIN_EMAIL, EMAIL, SITENAME,
 #. SITEURL: those are placeholders.
-
 #: wp-includes/user.php:1825
 msgid ""
 "Hi ###USERNAME###,\n"
@@ -7784,7 +7570,6 @@ msgid "Recent Comments"
 msgstr ""
 
 #. translators: comments widget: 1: comment author, 2: post link
-
 #: wp-includes/widgets/class-wp-widget-recent-comments.php:116
 msgctxt "widgets"
 msgid "%1$s on %2$s"
@@ -7877,7 +7662,6 @@ msgid "Sidebar"
 msgstr ""
 
 #. translators: 1: the id argument, 2: sidebar name, 3: recommended id value
-
 #: wp-includes/widgets.php:258
 msgid "No %1$s was set in the arguments array for the \"%2$s\" sidebar. Defaulting to \"%3$s\". Manually set the %1$s to \"%3$s\" to silence this notice and keep existing sidebar content."
 msgstr ""
@@ -7923,7 +7707,6 @@ msgid "Can&#8217;t select database"
 msgstr ""
 
 #. translators: %s: database name
-
 #: wp-includes/wp-db.php:1060
 msgid "We were able to connect to the database server (which means your username and password is okay) but not able to select the %s database."
 msgstr ""
@@ -7933,26 +7716,22 @@ msgid "Are you sure it exists?"
 msgstr ""
 
 #. translators: 1: database user, 2: database name
-
 #: wp-includes/wp-db.php:1069
 msgid "Does the user %1$s have permission to use the %2$s database?"
 msgstr ""
 
 #. translators: %s: database name
-
 #: wp-includes/wp-db.php:1076
 msgid "On some systems the name of your database is prefixed with your username, so it would be like <code>username_%1$s</code>. Could that be the problem?"
 msgstr ""
 
 #. translators: %s: support forums URL
-
 #: wp-includes/wp-db.php:1084
 msgid "If you don&#8217;t know how to set up a database you should <strong>contact your host</strong>. If all else fails you may find help at the <a href=\"%s\">WordPress Support Forums</a>."
 msgstr ""
 
 #. translators: %s: database access abstraction class, usually wpdb or a class
 #. extending wpdb
-
 #: wp-includes/wp-db.php:1136
 msgid "%s must set a database connection for use with escaping."
 msgstr ""
@@ -7974,7 +7753,6 @@ msgid "WordPress database error:"
 msgstr ""
 
 #. translators: 1: wp-config.php. 2: database host
-
 #: wp-includes/wp-db.php:1531
 msgid "This either means that the username and password information in your %1$s file is incorrect or we can&#8217;t contact the database server at %2$s. This could mean your host&#8217;s database server is down."
 msgstr ""
@@ -7992,7 +7770,6 @@ msgid "Are you sure that the database server is running?"
 msgstr ""
 
 #. translators: %s: support forums URL
-
 #: wp-includes/wp-db.php:1544 wp-includes/wp-db.php:1648
 msgid "If you&#8217;re unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"%s\">WordPress Support Forums</a>."
 msgstr ""
@@ -8002,7 +7779,6 @@ msgid "Error reconnecting to the database"
 msgstr ""
 
 #. translators: %s: database host
-
 #: wp-includes/wp-db.php:1637
 msgid "This means that we lost contact with the database server at %s. This could mean your host&#8217;s database server is down."
 msgstr ""
@@ -8020,13 +7796,11 @@ msgid "Links for %s"
 msgstr ""
 
 #. translators: %s: wp-config.php
-
 #: wp-load.php:77
 msgid "There doesn't seem to be a %s file. I need this before we can get started."
 msgstr ""
 
 #. translators: %s: Codex URL
-
 #: wp-load.php:82
 msgid "Need more help? <a href='%s'>We got it</a>."
 msgstr ""
@@ -8036,7 +7810,6 @@ msgid "https://codex.wordpress.org/Editing_wp-config.php"
 msgstr ""
 
 #. translators: %s: wp-config.php
-
 #: wp-load.php:87
 msgid "You can create a %s file through a web interface, but this doesn't work for all server setups. The safest way is to manually create the file."
 msgstr ""
@@ -8226,13 +7999,11 @@ msgid "Posted title:"
 msgstr ""
 
 #. translators: %s: POP3 error
-
 #: wp-mail.php:232
 msgid "Oops: %s"
 msgstr ""
 
 #. translators: %s: the message ID
-
 #: wp-mail.php:240
 msgid "Mission complete. Message %s deleted."
 msgstr ""
@@ -8346,7 +8117,6 @@ msgid "Next"
 msgstr ""
 
 #. translators: %s: username
-
 #: wp-signup.php:585
 msgid "%s is your new username"
 msgstr ""
@@ -8356,7 +8126,6 @@ msgid "But, before you can start using your new username, <strong>you must activ
 msgstr ""
 
 #. translators: %s: email address
-
 #: wp-signup.php:588 wp-signup.php:734
 msgid "Check your inbox at %s and click the link given."
 msgstr ""
@@ -8370,7 +8139,6 @@ msgid "Signup"
 msgstr ""
 
 #. translators: %s: site address
-
 #: wp-signup.php:730
 msgid "Congratulations! Your new site, %s, is almost ready."
 msgstr ""
@@ -8452,13 +8220,11 @@ msgid "You are logged in already. No need to register again!"
 msgstr ""
 
 #. translators: %s: site address
-
 #: wp-signup.php:853
 msgid "The site you were looking for, %s, does not exist, but you can create it now!"
 msgstr ""
 
 #. translators: %s: site address
-
 #: wp-signup.php:858
 msgid "The site you were looking for, %s, does not exist."
 msgstr ""
