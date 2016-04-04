@@ -9,6 +9,10 @@ using System.Web.Mvc;
 
 namespace PofilesReader.MVC.Helpers
 {
+    /// <summary>
+    /// looks for app_data/localization/{dir_folder}/*.po
+    /// if culture en-US folder not available will look up for parents, en folder then no sub folder.... 
+    /// </summary>
     public static class LocalizedHelper
     {
         public static MvcHtmlString T(this HtmlHelper helper, string text)
@@ -18,7 +22,7 @@ namespace PofilesReader.MVC.Helpers
             if (!string.IsNullOrEmpty(paths))
             {
                 var manager = new DefaultLocalizedStringManager(paths);
-                result= manager.GetLocalizedString(string.Empty, text);
+                result = manager.GetLocalizedString(string.Empty, text);
             }
             return new MvcHtmlString(result);
         }
@@ -52,19 +56,23 @@ namespace PofilesReader.MVC.Helpers
             return new MvcHtmlString(result);
         }
 
+        /// <summary>
+        /// can go up to parent
+        /// </summary>
+        /// <param name="helper"></param>
+        /// <returns></returns>
         private static string GetResourcesDirectory(HtmlHelper helper)
         {
             var dirPath = helper.ViewContext.HttpContext.Server.MapPath($"~/App_Data/Localization/{CultureInfo.CurrentUICulture}/");
-            
-            if (!Directory.Exists(dirPath))
+            var parent = CultureInfo.CurrentUICulture.Parent;
+            var dirExist = Directory.Exists(dirPath);
+            while (parent != null && !dirExist)
             {
-                var parent = CultureInfo.CurrentUICulture.Parent;
-                while (parent != null && !Directory.Exists(dirPath))
-                {
-                    dirPath = helper.ViewContext.HttpContext.Server.MapPath($"~/App_Data/Localization/{parent}/");
-                }
+                dirPath = helper.ViewContext.HttpContext.Server.MapPath($"~/App_Data/Localization/{parent}/");
+                dirExist= Directory.Exists(dirPath);
+                parent = parent.Parent;
             }
-            return dirPath;
+            return dirExist? dirPath:string.Empty;
         }
     }
 }
