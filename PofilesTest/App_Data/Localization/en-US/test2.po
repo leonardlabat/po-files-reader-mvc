@@ -13,6 +13,6 @@ msgstr ""
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
 
-#: test
+#: rer
 msgid "test"
 msgstr "check this out"

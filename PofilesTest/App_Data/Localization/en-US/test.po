@@ -12,13 +12,12 @@ msgstr ""
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
+msgid "test"
+msgstr "check it"
+
 #: wp-activate.php:74
 msgid "Activation Key Required"
 msgstr ""
-
-#: test
-msgid "test"
-msgstr "check it"
 
 #: wp-activate.php:77
 msgid "Activation Key:"
