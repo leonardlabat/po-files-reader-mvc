@@ -22,7 +22,10 @@ namespace PofilesReader.Localization
         public DefaultLocalizedStringManager(IPathsBuilder pathsBuilder)
         {
             var directoryPath = pathsBuilder.GetDirPath();
-            _filesPath = Directory.EnumerateFiles(directoryPath, "*.po").ToArray();
+            if (string.IsNullOrEmpty(directoryPath))
+                _filesPath = new string[0];
+            else
+                _filesPath = Directory.EnumerateFiles(directoryPath, "*.po").ToArray();
         }
 
 
@@ -37,10 +40,10 @@ namespace PofilesReader.Localization
             var culture = LoadAndGetCulture(CultureInfo.CurrentUICulture);
 
             string scopedKey = (scope + "|" + text).ToLowerInvariant();
-            string genericKey = (text +"|" + text).ToLowerInvariant();
+            string genericKey = (text + "|" + text).ToLowerInvariant();
 
             var value = GetValueFallbacks(culture, plural, index.GetValueOrDefault(1), scopedKey, genericKey);
-           if (string.IsNullOrEmpty(value))
+            if (string.IsNullOrEmpty(value))
                 value = GetParentTranslation(scope, text, CultureInfo.CurrentUICulture.Name, plural, index);
             if (string.IsNullOrEmpty(value))
                 value = text;
