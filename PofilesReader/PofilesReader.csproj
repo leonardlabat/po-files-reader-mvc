@@ -45,7 +45,7 @@
     <Compile Include="Localization\DefaultLocalizedStringManager.cs" />
     <Compile Include="Localization\ICacheManager.cs" />
     <Compile Include="Localization\ILogger.cs" />
-    <Compile Include="Localization\IWebSiteFolder.cs" />
+    <Compile Include="Localization\IPathsBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

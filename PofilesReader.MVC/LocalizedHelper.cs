@@ -15,25 +15,18 @@ namespace PofilesReader.MVC.Helpers
     /// </summary>
     public static class LocalizedHelper
     {
-        //TODO for IOC , make parameter constructor with IWebSitefolder..
-        private static ILocalizedStringManager GetLocalizedManager()
-        {
-            var res = DependencyResolver.Current.GetService<ILocalizedStringManager>();
-            return res ?? new DefaultLocalizedStringManager();
-        }
+        //TODO : IOC would be better and life managing container for objects
+        public const string basePath = "~/App_Data/Localization/";
+        private static IPathsBuilder pathsBuilder = new WebDirectoryFinder(basePath);
+        private static ILocalizedStringManager _manager = new DefaultLocalizedStringManager(pathsBuilder);
 
         public static MvcHtmlString T(this HtmlHelper helper, string text)
         {
             string result = text;
-            string paths = GetResourcesDirectory(helper);
-            if (!string.IsNullOrEmpty(paths))
-            {
-                var manager = new DefaultLocalizedStringManager(paths);
-                result = manager.GetLocalizedString(string.Empty, text);
-            }
+            result = _manager.GetLocalizedString(string.Empty, text);
             return new MvcHtmlString(result);
         }
-        public static MvcHtmlString T(this HtmlHelper helper, string text, params string[] paramss) 
+        public static MvcHtmlString T(this HtmlHelper helper, string text, params string[] paramss)
         {
             var result = helper.T(text).ToString();
             return new MvcHtmlString(string.Format(result, paramss));
@@ -41,12 +34,7 @@ namespace PofilesReader.MVC.Helpers
         public static MvcHtmlString T(this HtmlHelper helper, string text, string context)
         {
             string result = text;
-            string paths = GetResourcesDirectory(helper);
-            if (!string.IsNullOrEmpty(paths))
-            {
-                var manager = new DefaultLocalizedStringManager(paths);
-                result = manager.GetLocalizedString(context, text);
-            }
+            result = _manager.GetLocalizedString(context, text);
             return new MvcHtmlString(result);
         }
 
@@ -58,12 +46,7 @@ namespace PofilesReader.MVC.Helpers
         public static MvcHtmlString TPlural(this HtmlHelper helper, string text)
         {
             string result = text;
-            string paths = GetResourcesDirectory(helper);
-            if (!string.IsNullOrEmpty(paths))
-            {
-                var manager = new DefaultLocalizedStringManager(paths);
-                result = manager.GetLocalizedString(string.Empty, text, true,1)??text;
-            }
+            var manager = new DefaultLocalizedStringManager(pathsBuilder);
             return new MvcHtmlString(result);
         }
 
@@ -74,23 +57,5 @@ namespace PofilesReader.MVC.Helpers
             return new MvcHtmlString(string.Format(result, parammss));
         }
 
-        /// <summary>
-        /// can go up to parent
-        /// </summary>
-        /// <param name="helper"></param>
-        /// <returns></returns>
-        private static string GetResourcesDirectory(HtmlHelper helper)
-        {
-            var dirPath = helper.ViewContext.HttpContext.Server.MapPath($"~/App_Data/Localization/{CultureInfo.CurrentUICulture}/");
-            var parent = CultureInfo.CurrentUICulture.Parent;
-            var dirExist = Directory.Exists(dirPath);
-            while (parent != null && parent.Parent !=parent && !dirExist)
-            {
-                dirPath = helper.ViewContext.HttpContext.Server.MapPath($"~/App_Data/Localization/{parent}/");
-                dirExist= Directory.Exists(dirPath);
-                parent = parent.Parent;
-            }
-            return dirExist? dirPath:string.Empty;
-        }
     }
 }

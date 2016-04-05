@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 
 namespace PofilesReader.Localization
 {
-    public interface IWebSiteFolder
+    public interface IPathsBuilder
     {
-        string ReadFile(string filepath);
+        string GetDirPath();
     }
 }

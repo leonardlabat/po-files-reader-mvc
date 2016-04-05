@@ -19,16 +19,12 @@ namespace PofilesReader.Localization
         public ILogger Logger { get; set; }
         //private readonly ICacheManager _cacheManager;
 
-        public DefaultLocalizedStringManager(string directoryPath)
+        public DefaultLocalizedStringManager(IPathsBuilder pathsBuilder)
         {
+            var directoryPath = pathsBuilder.GetDirPath();
             _filesPath = Directory.EnumerateFiles(directoryPath, "*.po").ToArray();
         }
 
-        public DefaultLocalizedStringManager(params string[] filesPaths)
-        {
-            //_cacheManager = cacheManager;
-            _filesPath = filesPaths.Where(p=>Path.GetExtension(p) =="po").ToArray();
-        }
 
         // This will translate a string into a string in the target cultureName.
         // The scope portion is optional, it amounts to the location of the file containing 
