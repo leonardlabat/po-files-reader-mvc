@@ -21,13 +21,13 @@ namespace PofilesReader.Localization
 
         public DefaultLocalizedStringManager(string directoryPath)
         {
-            _filesPath = Directory.EnumerateFiles(directoryPath).ToArray();
+            _filesPath = Directory.EnumerateFiles(directoryPath, "*.po").ToArray();
         }
 
         public DefaultLocalizedStringManager(params string[] filesPaths)
         {
             //_cacheManager = cacheManager;
-            _filesPath = filesPaths;
+            _filesPath = filesPaths.Where(p=>Path.GetExtension(p) =="po").ToArray();
         }
 
         // This will translate a string into a string in the target cultureName.
@@ -41,10 +41,10 @@ namespace PofilesReader.Localization
             var culture = LoadAndGetCulture(CultureInfo.CurrentUICulture);
 
             string scopedKey = (scope + "|" + text).ToLowerInvariant();
-            string genericKey = ("|" + text).ToLowerInvariant();
+            string genericKey = (text +"|" + text).ToLowerInvariant();
 
             var value = GetValueFallbacks(culture, plural, index.GetValueOrDefault(1), scopedKey, genericKey);
-            if (string.IsNullOrEmpty(value))
+           if (string.IsNullOrEmpty(value))
                 value = GetParentTranslation(scope, text, CultureInfo.CurrentUICulture.Name, plural, index);
             if (string.IsNullOrEmpty(value))
                 value = text;

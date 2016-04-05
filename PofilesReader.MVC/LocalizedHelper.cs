@@ -84,7 +84,7 @@ namespace PofilesReader.MVC.Helpers
             var dirPath = helper.ViewContext.HttpContext.Server.MapPath($"~/App_Data/Localization/{CultureInfo.CurrentUICulture}/");
             var parent = CultureInfo.CurrentUICulture.Parent;
             var dirExist = Directory.Exists(dirPath);
-            while (parent != null && !dirExist)
+            while (parent != null && parent.Parent !=parent && !dirExist)
             {
                 dirPath = helper.ViewContext.HttpContext.Server.MapPath($"~/App_Data/Localization/{parent}/");
                 dirExist= Directory.Exists(dirPath);
