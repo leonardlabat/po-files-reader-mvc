@@ -275,8 +275,11 @@ namespace PofilesReader.Localization
                         cultureValue.PluralNValues[index] = translation;
                         id = scope = string.Empty;
                         continue;
-
                     }
+                }
+                if (cultureValue != null) // last line
+                {
+                    yield return cultureValue;
                 }
             }
         }

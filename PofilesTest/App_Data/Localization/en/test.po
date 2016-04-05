@@ -16,14 +16,13 @@ msgstr ""
 
 # translator-comments
 #. extracted-comments
-#: Label
-msgid "Label"
+#: 
+msgid "Hi guys"
 msgstr ""
 
 
 # translator-comments
 #. extracted-comments
-#: Positionnement
-msgid "Positionnement"
-msgstr "dd"
-
+#: 
+msgid "seriously ?"
+msgstr "seriously dude ?"
