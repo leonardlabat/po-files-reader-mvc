@@ -1,6 +1,7 @@
 ﻿using PofilesReader.Localization;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -16,7 +17,8 @@ namespace PofilesReader.MVC.Helpers
     public static class LocalizedHelper
     {
         //TODO : IOC would be better and life managing container for objects
-        public const string basePath = "~/App_Data/Localization/";
+        public static string basePath = ConfigurationManager.AppSettings.Get("PofilesFolder");
+            //"~/App_Data/Localization/";
         private static IPathsBuilder pathsBuilder = new WebDirectoryFinder(basePath);
         private static ILocalizedStringManager _manager = new DefaultLocalizedStringManager(pathsBuilder);
 
