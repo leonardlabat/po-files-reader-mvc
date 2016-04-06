@@ -81,12 +81,16 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Content\web.config.uninstall.xdt" />
+    <Content Include="Content\web.config.uninstall.xdt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="packages.config" />
     <None Include="PofilesReader.MVC.nuspec" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Content\web.config.install.xdt" />
+    <Content Include="Content\web.config.install.xdt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
