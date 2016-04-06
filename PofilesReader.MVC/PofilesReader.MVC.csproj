@@ -81,14 +81,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\web.config.uninstall.xdt">
+    <Content Include="Content\Web.config.uninstall.xdt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="packages.config" />
     <None Include="PofilesReader.MVC.nuspec" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\web.config.install.xdt">
+    <Content Include="Content\Web.config.install.xdt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
